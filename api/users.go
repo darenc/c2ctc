@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
+	//"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -23,9 +23,10 @@ type CtcUser struct {
 
 func Users(w http.ResponseWriter, r *http.Request) {
 	// Load environment variables from file.
-	if err := godotenv.Load(); err != nil {
+	/*if err := godotenv.Load(); err != nil {
 		log.Fatalf("failed to load environment variables: %v", err)
 	}
+	*/
 
 	// Connect to PlanetScale database using DSN environment variable.
 	db, err := gorm.Open(mysql.Open(os.Getenv("DSN")), &gorm.Config{
