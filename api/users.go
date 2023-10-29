@@ -35,13 +35,6 @@ func Users(w http.ResponseWriter, r *http.Request) {
 		log.Fatalf("failed to connect to PlanetScale: %v", err)
 	}
 
-	// Start an HTTP API server.
-	const addr = ":8080"
-	log.Printf("successfully connected to PlanetScale, starting HTTP server on %q", addr)
-	if err := http.ListenAndServe(addr, handler); err != nil {
-		log.Fatalf("failed to serve HTTP: %v", err)
-	}
-
 	getCtcUsers(db, w, r)
 }
 
