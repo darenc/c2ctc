@@ -50,12 +50,10 @@ func getCtcUsers(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 
 	enc := json.NewEncoder(w)
 	enc.SetIndent("", "    ")
-	enc.Encode(users)
-	body, err := json.Marshal(enc)
+	err := enc.Encode(users)
 
 	if err != nil {
-		fmt.Printf("Error happened in JSON marshal. Err: %s", err)
-	} else {
-		w.Write(body)
+		s := fmt.Sprintf("Error happened in JSON marshal. Err: %s", err)
+		http.Error(w, s, http.StatusInternalServerError)
 	}
 }
