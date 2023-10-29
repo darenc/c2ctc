@@ -2,9 +2,14 @@
 <html lang="en-GB">
     <head>
         <title>c2ctc</title>
+        <script src="/js/htmx.1.9.6.min.js"></script>
     </head>
     <body>
         <h1>c2ctc</h1>
         <p>Coming soon</p>
+        <p>
+            In the meantime, load a random <a data-hx-get="/api/users" hx-target="#json">piece of JSON</a>.
+        </p>
+        <pre id="json"></pre>
     </body>
 </html>
